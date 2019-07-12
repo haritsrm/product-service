@@ -1,0 +1,154 @@
+FORMAT: 1A
+HOST: http://product.indoauction.id/
+
+# Product API
+
+Product API is designed for manage your own product. This is a REST API using all support request methods.
+
+## Products Collection [/]
+
+### List All Products [GET]
+
++ Response 200 (application/json)
+
+        [
+          {
+            "uuid": "39843609-e732-4411-9d64-fcbe9944c468",
+            "category_uuid": "a1b24099-5446-40ec-b838-ed4fdb0e5b28",
+            "name": "Luffy Gear 3rd",
+            "description": "ini figure bagus",
+            "price": "200000",
+            "time_limit": "30",
+            "time_start": "30",
+            "user_uuid": "7eb19544-7957-497b-aae7-795f68ab2cfe",
+            "created_at": "2019-07-05 00:00:00",
+            "updated_at": "2019-07-05 00:00:00"
+          },
+          {
+            "uuid": "2f692f35-9da0-42de-a980-2b2ec4f24284",
+            "category_uuid": "d0166c21-c939-4528-8a0e-e1929a0ff622",
+            "name": "HP Notebook",
+            "description": "ini notebook",
+            "price": "200",
+            "time_limit": "50",
+            "time_start": "10",
+            "user_uuid": "7eb19544-7957-497b-aae7-795f68ab2cfe",
+            "created_at": "2019-07-12 21:54:17",
+            "updated_at": "2019-07-12 21:54:17"
+          },
+          {
+            "uuid": "6eafd194-212e-4bfb-8b15-f7ab6ee46bfc",
+            "category_uuid": "d0166c21-c939-4528-8a0e-e1929a0ff622",
+            "name": "Macbook Pro",
+            "description": "ini Macbook Pro",
+            "price": "200",
+            "time_limit": "50",
+            "time_start": "10",
+            "user_uuid": "7eb19544-7957-497b-aae7-795f68ab2cfe",
+            "created_at": "2019-07-12 21:54:49",
+            "updated_at": "2019-07-12 21:54:49"
+          }
+        ]
+
+### Create a New Product [POST]
+
+You may create your own product using this action. It takes a JSON
+object containing a product.
+
++ Request (application/json)
+
+    + Headers
+    
+            Accept: application/json,
+            Authorization: Bearer VHNoSFZWVWxFNEl3YzBRRW9nM0Qyb25YSWFYWVNodDQ0djdUaW44aw==
+        
+    + Attributes
+
+        + category_uuid: `d0166c21-c939-4528-8a0e-e1929a0ff622`,
+        + name: HP Notebook,
+        + description: ini notebook,
+        + price: 200,
+        + time_limit: 50,
+        + time_start: 10,
+
++ Response 201 (application/json)
+
+        {
+          "status": true,
+          "message": "berhasil menambahkan Macbook Pro"
+        }
+
+## Product Resource [/{product_uuid}]
+
++ Parameters
+    + product_uuid: `7d1a44d5-2da3-4280-a39a-4f3e4bbd914c` (string) - UUID of the Product.
+
+### Show a Product [GET]
+
++ Request
+
+    + Headers
+        
+            Accept: application/json,
+            Authorization: Bearer VHNoSFZWVWxFNEl3YzBRRW9nM0Qyb25YSWFYWVNodDQ0djdUaW44aw==
+
++ Response 200 (application/json)
+
+        {
+          "data": {
+            "uuid": "dbb18e99-20be-4086-95e5-4dd276b0871c",
+            "category_uuid": "d0166c21-c939-4528-8a0e-e1929a0ff622",
+            "name": "HP Notebook",
+            "description": "ini notebook",
+            "price": "200",
+            "time_limit": "50",
+            "time_start": "10",
+            "user_uuid": "7eb19544-7957-497b-aae7-795f68ab2cfe",
+            "created_at": "2019-07-12 22:37:47",
+            "updated_at": "2019-07-12 22:37:47"
+          }
+        }
+        
+### Update a Product [PUT]
+
++ Request (application/json)
+
+    + Headers
+    
+            Accept: application/json,
+            Authorization: Bearer VHNoSFZWVWxFNEl3YzBRRW9nM0Qyb25YSWFYWVNodDQ0djdUaW44aw==
+        
+    + Attributes
+
+        + category_uuid: `d0166c21-c939-4528-8a0e-e1929a0ff622`,
+        + name: Macbook Air,
+        + description: ini Macbook Air,
+        + price: 200,
+        + time_limit: 50,
+        + time_start: 10,
+
++ Response 201 (application/json)
+
+        {
+            "status": true,
+            "message": "berhasil mengubah detail Macbook Air"
+        }
+        
+### Delete a Product [DELETE]
+
+You may manage your own product using this action. It takes a JSON
+object containing a product resource. 
+
++ Request (application/json)
+
+    + Headers
+    
+            Accept: application/json,
+            Authorization: Bearer VHNoSFZWVWxFNEl3YzBRRW9nM0Qyb25YSWFYWVNodDQ0djdUaW44aw==
+
++ Response 201 (application/json)
+
+        {
+            "status": true,
+            "message": "berhasil manghapus Macbook Air"
+        }
